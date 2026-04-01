@@ -49,11 +49,11 @@ export function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/95 backdrop-blur-xl supports-[backdrop-filter]:bg-background/80">
+      <header className="sticky top-0 z-50 w-full border-b border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80">
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 transition-opacity hover:opacity-80">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent shadow-lg shadow-primary/20">
+          <Link href="/" className="flex items-center gap-3">
+            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary">
               <span className="text-sm font-bold text-primary-foreground">NB</span>
             </div>
             <span className="text-lg font-semibold tracking-tight text-foreground">
@@ -65,16 +65,16 @@ export function Header() {
           <nav className="hidden items-center gap-1 md:flex">
             <Link
               href="/about"
-              className="rounded-xl px-4 py-2 text-sm font-medium text-muted-foreground transition-all hover:bg-primary/10 hover:text-foreground"
+              className="rounded-lg px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
             >
               About
             </Link>
             <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center gap-1 rounded-xl px-4 py-2 text-sm font-medium text-muted-foreground transition-all hover:bg-primary/10 hover:text-foreground">
+              <DropdownMenuTrigger className="flex items-center gap-1 rounded-lg px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground">
                 Blog
                 <ChevronDown className="h-4 w-4" />
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="center" className="min-w-[160px] border-border/50 bg-card/95 backdrop-blur-xl">
+              <DropdownMenuContent align="center" className="min-w-[160px]">
                 <DropdownMenuItem asChild>
                   <Link href="/blog/popular" className="cursor-pointer">
                     Popular Blogs
@@ -171,31 +171,31 @@ export function Header() {
         <div className="fixed inset-0 z-[60]">
           {/* Backdrop */}
           <div
-            className="absolute inset-0 bg-background/60 backdrop-blur-md"
+            className="absolute inset-0 bg-foreground/20 backdrop-blur-sm"
             onClick={() => setIsSearchOpen(false)}
           />
 
           {/* Search Modal */}
           <div className="absolute left-1/2 top-20 w-full max-w-xl -translate-x-1/2 px-4">
-            <div className="overflow-hidden rounded-2xl border border-border/50 bg-card/95 shadow-2xl shadow-primary/10 backdrop-blur-xl">
+            <div className="overflow-hidden rounded-xl bg-card shadow-2xl ring-1 ring-border">
               <form onSubmit={handleSearch} className="flex items-center">
-                <Search className="ml-4 h-5 w-5 shrink-0 text-primary" />
+                <Search className="ml-4 h-5 w-5 shrink-0 text-muted-foreground" />
                 <Input
                   ref={searchInputRef}
                   type="search"
                   placeholder="Search blogs..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="flex-1 border-0 bg-transparent text-base text-foreground placeholder:text-muted-foreground focus-visible:ring-0"
+                  className="flex-1 border-0 bg-transparent text-base focus-visible:ring-0"
                 />
                 <Button
                   type="button"
                   variant="ghost"
                   size="sm"
                   onClick={() => setIsSearchOpen(false)}
-                  className="mr-2 text-muted-foreground hover:text-foreground"
+                  className="mr-2 text-muted-foreground"
                 >
-                  <kbd className="pointer-events-none rounded-lg border border-border bg-secondary px-2 py-1 text-xs text-muted-foreground">
+                  <kbd className="pointer-events-none rounded border border-border bg-muted px-1.5 py-0.5 text-xs text-muted-foreground">
                     ESC
                   </kbd>
                 </Button>

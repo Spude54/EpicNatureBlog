@@ -26,26 +26,25 @@ export function BlogCard({ post, showStats = true }: BlogCardProps) {
   const formattedDate = formatDate(post.publishedAt);
 
   return (
-    <Card className="group overflow-hidden border-border/50 bg-card/50 backdrop-blur-sm transition-all hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10">
+    <Card className="group overflow-hidden transition-shadow hover:shadow-lg">
       <Link href={`/blog/${post.slug}`}>
         <div className="relative aspect-[16/10] overflow-hidden">
           <Image
             src={post.featuredImage}
             alt={post.title}
             fill
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
         </div>
       </Link>
-      <CardContent className="p-5">
+      <CardContent className="p-4">
         {/* Tags */}
-        <div className="mb-3 flex flex-wrap gap-2">
+        <div className="mb-2 flex flex-wrap gap-2">
           {post.tags.slice(0, 2).map((tag) => (
             <span
               key={tag}
-              className="rounded-full bg-primary/10 px-2.5 py-1 text-xs font-medium text-primary"
+              className="rounded-full bg-secondary px-2 py-0.5 text-xs font-medium text-secondary-foreground"
             >
               {tag}
             </span>
@@ -66,8 +65,8 @@ export function BlogCard({ post, showStats = true }: BlogCardProps) {
 
         {/* Author */}
         {author && (
-          <div className="flex items-center gap-3">
-            <div className="relative h-9 w-9 overflow-hidden rounded-full ring-2 ring-primary/20">
+          <div className="flex items-center gap-2">
+            <div className="relative h-8 w-8 overflow-hidden rounded-full">
               <Image
                 src={author.avatar}
                 alt={author.name}
@@ -83,19 +82,19 @@ export function BlogCard({ post, showStats = true }: BlogCardProps) {
       </CardContent>
 
       {showStats && (
-        <CardFooter className="border-t border-border/50 px-5 py-3">
+        <CardFooter className="border-t border-border px-4 py-3">
           <div className="flex w-full items-center justify-between text-sm text-muted-foreground">
-            <div className="flex items-center gap-1.5">
-              <Calendar className="h-4 w-4 text-primary/70" />
+            <div className="flex items-center gap-1">
+              <Calendar className="h-4 w-4" />
               <span>{formattedDate}</span>
             </div>
             <div className="flex items-center gap-4">
-              <div className="flex items-center gap-1.5">
-                <Heart className="h-4 w-4 text-primary/70" />
+              <div className="flex items-center gap-1">
+                <Heart className="h-4 w-4" />
                 <span>{post.likes}</span>
               </div>
-              <div className="flex items-center gap-1.5">
-                <Eye className="h-4 w-4 text-primary/70" />
+              <div className="flex items-center gap-1">
+                <Eye className="h-4 w-4" />
                 <span>{post.views}</span>
               </div>
             </div>

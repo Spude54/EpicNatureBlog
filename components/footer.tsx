@@ -69,15 +69,13 @@ export function Footer() {
   };
 
   return (
-    <footer className="relative border-t border-border/50 bg-card/50">
-      {/* Cloud accent */}
-      <div className="pointer-events-none absolute left-0 top-0 h-40 w-40 rounded-full bg-primary/5 blur-3xl" />
-      <div className="container relative mx-auto px-4 py-12">
+    <footer className="border-t border-border bg-card">
+      <div className="container mx-auto px-4 py-12">
         <div className="grid gap-8 md:grid-cols-3">
           {/* Brand Section */}
           <div>
-            <Link href="/" className="flex items-center gap-3 transition-opacity hover:opacity-80">
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent shadow-lg shadow-primary/20">
+            <Link href="/" className="flex items-center gap-3">
+              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary">
                 <span className="text-sm font-bold text-primary-foreground">NB</span>
               </div>
               <span className="text-lg font-semibold tracking-tight text-foreground">
@@ -92,14 +90,14 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="mb-4 inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-foreground">
               Quick Links
             </h3>
-            <ul className="mt-2 space-y-3">
+            <ul className="space-y-2">
               <li>
                 <Link
                   href="/about"
-                  className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
                   About
                 </Link>
@@ -107,7 +105,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/blog/popular"
-                  className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
                   Popular Blogs
                 </Link>
@@ -115,7 +113,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/blog/recent"
-                  className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
                   Recent Blogs
                 </Link>
@@ -125,14 +123,14 @@ export function Footer() {
 
           {/* Newsletter & Social */}
           <div>
-            <h3 className="mb-4 inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-foreground">
               Stay Connected
             </h3>
 
             {/* Newsletter Button */}
             <Dialog open={isNewsletterOpen} onOpenChange={setIsNewsletterOpen}>
               <DialogTrigger asChild>
-                <Button className="mt-2 mb-6 w-full gap-2 rounded-full shadow-lg shadow-primary/25 transition-all hover:shadow-xl hover:shadow-primary/30">
+                <Button className="mb-6 w-full gap-2">
                   <Mail className="h-4 w-4" />
                   Subscribe to Newsletter
                 </Button>
