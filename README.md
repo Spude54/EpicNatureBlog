@@ -1,2 +1,0 @@
-# EpicNatureBlog
-Cool beans
